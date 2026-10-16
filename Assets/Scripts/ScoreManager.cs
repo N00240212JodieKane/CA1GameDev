@@ -6,12 +6,10 @@ public class ScoreManager : MonoBehaviour
     TextMeshProUGUI coinText; 
     int coins; 
  
-    void Awake() 
-    { 
-        // ScoreManager sits on the same object as the text, 
-        // so GetComponent finds it here. 
-        	 
-    } 
+    void Awake()
+{
+    coinText = GetComponent<TextMeshProUGUI>();
+}
  
     void Start() 
     { 
@@ -26,7 +24,7 @@ public class ScoreManager : MonoBehaviour
  
     void UpdateText() 
     { 
-        coinText.text = "Coins: " + coins; 
+        coinText.text = "Coin: " + coins; 
     } 
 } 
 

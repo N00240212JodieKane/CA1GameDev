@@ -38,6 +38,12 @@
 # Unity YAML files
 *.anim                  unity-yaml
 *.asset                 unity-yaml
+
+[...]
+
+# Exceptions for .asset files
+# Lighting pre-baking data can be treated as binary.
+LightingData.asset        binary
 *.brush                 unity-yaml
 *.controller            unity-yaml
 *.flare                 unity-yaml
