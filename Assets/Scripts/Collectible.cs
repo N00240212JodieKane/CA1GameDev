@@ -6,6 +6,7 @@ public class Collectible : MonoBehaviour
     [SerializeField] private AudioClip collectSound;
     [SerializeField] private float volume = 1f;
     [SerializeField] private ScoreManager scoreManager;
+    [SerializeField] GameObject collectEffect;
 
     private bool collected = false;
 
@@ -13,7 +14,7 @@ public class Collectible : MonoBehaviour
     {
         if (scoreManager == null)
         {
-            scoreManager = FindFirstObjectByType<ScoreManager>();
+            scoreManager = FindAnyObjectByType<ScoreManager>();
         }
     }
 
@@ -42,6 +43,10 @@ Debug.Log("COIN AWARD: " + gameObject.name);
 
 scoreManager.IncreaseScore();
 
+        if (collectEffect != null)
+        {
+            Instantiate(collectEffect, transform.position, Quaternion.identity);
+        }
 
         if (collectSound != null)
         {
